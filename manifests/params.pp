@@ -10,7 +10,8 @@ class nfs::params (
 
   case $::operatingsystem {
     'centos', 'redhat', 'scientific', 'fedora', 'SLC', 'OracleLinux', 'Amazon' : { $osfamily = 'redhat' }
-    'debian', 'Ubuntu' : { $osfamily = 'debian' }
+    'debian'           : { $osfamily = 'debian' }
+    'Ubuntu'           : { $osfamily = 'ubuntu' }
     'windows'          : { fail('fail!11') }
     'darwin'           : { $osfamily = 'darwin' }
     'gentoo'           : { $osfamily = 'gentoo' }
