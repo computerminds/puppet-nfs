@@ -1,9 +1,9 @@
-class nfs::client::debian::configure {
+class nfs::client::ubuntu::configure {
   Augeas{
-    require => Class['nfs::client::debian::install']
+    require => Class['nfs::client::ubuntu::install']
   }
 
-  if $nfs::client::debian::nfs_v4 {
+  if $nfs::client::ubuntu::nfs_v4 {
       augeas {
         '/etc/default/nfs-common':
           context => '/files/etc/default/nfs-common',
