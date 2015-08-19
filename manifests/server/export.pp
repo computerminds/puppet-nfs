@@ -43,6 +43,9 @@ define nfs::server::export (
       nfstag    => $nfstag,
       share     => $v4_export_name,
       server    => $server,
+      owner     => $owner,
+      group     => $group,
+      perm      => $perms,
     }
 
   } else {
