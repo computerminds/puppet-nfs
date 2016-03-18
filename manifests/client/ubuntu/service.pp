@@ -3,10 +3,12 @@ class nfs::client::ubuntu::service {
     require => Class['nfs::client::ubuntu::configure']
   }
 
-  service { 'portmap':
-    ensure    => running,
-    enable    => true,
-    hasstatus => false,
+  if $lsbdistcodename == 'precise' {
+    service { 'portmap':
+      ensure    => running,
+      enable    => true,
+      hasstatus => false,
+    }
   }
 
   if $nfs::client::ubuntu::nfs_v4 {

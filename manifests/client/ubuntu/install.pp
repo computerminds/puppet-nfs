@@ -4,7 +4,9 @@ class nfs::client::ubuntu::install {
     ensure => installed,
   }
 
-  Package['rpcbind'] -> Service['portmap']
+  if $lsbdistcodename == 'precise' {
+    Package['rpcbind'] -> Service['portmap']
+  }
 
 
   package { ['nfs-common', 'nfs4-acl-tools']:
